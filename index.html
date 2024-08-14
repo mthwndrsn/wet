@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WET Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #dff0d8;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wine Equalisation Tax (WET) Calculator</h1>
+    <label for="wholesaleValue">Enter the Wholesale Value (AUD):</label>
+    <input type="number" id="wholesaleValue" placeholder="Enter value in AUD">
+    <button onclick="calculateWET()">Calculate WET</button>
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculateWET() {
+            const wholesaleValue = parseFloat(document.getElementById('wholesaleValue').value);
+            if (isNaN(wholesaleValue) || wholesaleValue <= 0) {
+                document.getElementById('result').innerHTML = 'Please enter a valid wholesale value.';
+                return;
+            }
+            const wet = wholesaleValue * 0.29;
+            document.getElementById('result').innerHTML = `The Wine Equalisation Tax (WET) is: AUD ${wet.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
